@@ -31,6 +31,10 @@ class Mega_Menu_Widget extends WP_Widget {
 	 * @param array   $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
+		if ( ! is_array( $args ) ) {
+			$args = array( "before_widget" => "", "after_widget" => "");
+		}
+		
 		extract( $args );
 
 		if ( isset( $instance['location'] ) ) {

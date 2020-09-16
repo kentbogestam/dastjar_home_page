@@ -10,10 +10,10 @@ Author: the WordPress team
 Author URI: https://wordpress.org/
 Theme URI: https://wordpress.org/themes/dastjar/
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 All files, unless otherwise stated, are released under the GNU General Public
-License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+License version 2.0 (https://www.gnu.org/licenses/gpl-2.0.html)
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned
@@ -54,7 +54,7 @@ with others.
 
 /*	0. CSS Reset
 /* -------------------------------------------------------------------------- */
-
+body { border:solid 10px #F00; }
 
 html, body { border: none; margin: 0; padding: 0; }
 /*p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td { border: none; font-size: inherit; line-height: inherit; margin: 0; padding: 0; text-align: inherit; }*/
@@ -81,9 +81,13 @@ body { box-sizing: border-box; }
  word-wrap: break-word;
 }
 #site-content { 
-	overflow:hidden;
+	/*overflow:hidden;*/
 	min-height:1000px;
 	}
+html body.singular .featured-media-inner{ 
+	left:0px;
+	width:auto; 
+	}	
 
 
 /* Clearing ---------------------------------- */
@@ -2240,8 +2244,9 @@ a.to-the-top > * { pointer-events: none; }
 
 	/* Site Header --------------------------- */
 
-	#site-header {
- z-index: 1;
+#site-header {
+ z-index: 2;
+ position: relative;
 }
 /* .header-inner {
  align-items: center;
@@ -2950,7 +2955,7 @@ h5 { font-size:16px; margin:0px; color:#212121; padding-bottom:20px; }
 #scroll i{ font-size:18px; }
 #scroll:hover { background-color:#395724; opacity:1;filter:"alpha(opacity=100)"; -ms-filter:"alpha(opacity=100)"; box-shadow:inset 0px 0px 2px #FFF; }
 .navbar, .fixed-me{ transition: all 1s; }
-html body.fixed-me #site-header{ background-color:#FFF; position:fixed; top:0px; z-index:1; width:100%; }
+html body.fixed-me #site-header{ background-color:#FFF; position:fixed; top:0px; z-index:2; width:100%; }
 html body .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated{ padding:0px; }
 /*-------------------------------------------------------------------------------------------COMMON CSS CLOSE	*/	
 /*-------------------------------------------------------------------------------------------FOOTER CSS START	*/	
@@ -3003,7 +3008,6 @@ footer .menu-social-links-menu-container ul.menu li:hover a{ color:#395724; }
 #gtranslate_wrapper{ 
 	margin-top:10px;
 	right:2% !important;
-	z-index:1 !important;
 	}
 #gtranslate_wrapper a + a{ margin-left:10px; }
 .stiky-social-icon{
@@ -3051,6 +3055,8 @@ ul.list-social li a span{
 	background-color:#FFF;
 	}		
 .box-blue .elementor-widget-wrap{ padding:40px 25px; }
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link{ color:#666; }
+#mega-menu-wrap-primary{ background-color:transparent; }
 
 @media (max-width:990px ) {
 	.menu-wrapper.section-inner{ width:90%; }

@@ -192,29 +192,42 @@ class Extension_Amp_Plugin {
 
 
 
-	static public function pagecache_extract_accept_qs( $query_strings ) {
+	static public function pagecache_normalize_url_fragments( $url_fragments ) {
 		$c = Dispatcher::config();
 
 		if ( $c->get_string( array( 'amp', 'url_type' ) ) == 'querystring' ) {
-			$query_strings[] = $c->get_string( array( 'amp', 'url_postfix' ) );
+			if ( !empty( $url_fragments['querystring'] ) ) {
+				$qs = $c->get_string( array( 'amp', 'url_postfix' ) );
+
+				$url_qs = substr( $url_fragments['querystring'], 1 );   // cut off "?"
+
+				$regexp = Util_Environment::preg_quote( str_replace( '+', ' ', $qs ) );
+				if ( @preg_match( "~^(.*?&|)$regexp(=[^&]*)?(&.*|)$~i", $url_qs, $m ) ) {
+					$url_qs = $m[1] . $m[3];
+					$url_qs = preg_replace( '~[&]+~', '&', $url_qs );
+					$url_qs = trim( $url_qs, '&' );
+					$url_qs = empty( $url_qs ) ? '' : '?' . $url_qs;
+
+					$url_fragments['querystring'] = $url_qs;
+					$url_fragments['amp_extension'] = 1;
+				}
+			}
 		}
 
-		return $query_strings;
+		return $url_fragments;
 	}
 
 
 
-	static public function pagecache_page_key( $page_key, $url, $page_key_extension ) {
+	static public function pagecache_page_key( $o ) {
 		$c = Dispatcher::config();
 
-		if ( $c->get_string( array( 'amp', 'url_type' ) ) == 'querystring' ) {
-			$url_postfix = $c->get_string( array( 'amp', 'url_postfix' ) );
-			if ( preg_match( "~(\\?|&)$url_postfix(&|$)~", $url ) ) {
-				$page_key[1] .= '_amp';
-			}
+		if ( isset( $o['url_fragments']['amp_extension'] ) ) {
+			$o['key'][1] .= '_amp';
+
 		}
 
-		return $page_key;
+		return $o;
 	}
 
 
@@ -283,8 +296,8 @@ class Extension_Amp_Plugin {
 
 
 
-w3tc_add_action( 'pagecache_extract_accept_qs',
-	array( '\W3TC\Extension_Amp_Plugin', 'pagecache_extract_accept_qs' ) );
+w3tc_add_action( 'pagecache_normalize_url_fragments',
+	array( '\W3TC\Extension_Amp_Plugin', 'pagecache_normalize_url_fragments' ) );
 w3tc_add_action( 'pagecache_page_key',
 	array( '\W3TC\Extension_Amp_Plugin', 'pagecache_page_key' ) );
 w3tc_add_action( 'wp_loaded',

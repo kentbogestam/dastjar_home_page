@@ -41,6 +41,10 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'dbcache.debug_purge' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'dbcache.enabled' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -169,6 +173,18 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => true
 	),
+	'lazyload.googlemaps.google_maps_easy' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.googlemaps.wp_google_maps' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.googlemaps.wp_google_map_plugin' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'lazyload.exclude' => array(
 		'type' => 'array',
 		'default' => array(
@@ -188,6 +204,7 @@ $keys = array(
 			'loading="eager"',
 			'no-lazy',
 			'rev-slidebg',
+			'skip-lazy',
 			'soliloquy-image',
 			'swatch-img',
 			'w3-total-cache',
@@ -212,9 +229,13 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'objectcache.debug_purge' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'objectcache.enabled_for_wp_admin' => array(
 		'type' => 'boolean',
-		'default' => true
+		'default' => false,
 	),
 	'objectcache.fallback_transients' => array(
 		'type' => 'boolean',
@@ -322,6 +343,10 @@ $keys = array(
 		'default' => 1800
 	),
 	'pgcache.debug' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'pgcache.debug_purge' => array(
 		'type' => 'boolean',
 		'default' => false
 	),
@@ -1994,7 +2019,14 @@ $keys = array(
 		'type' => 'string',
 		'default' => ''
 	),
-
+	'browsercache.security.fp' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.fp.values' => array(
+		'type' => 'array',
+		'default' => array()
+	),
 
 
 	'mobile.configuration_overloaded' => array(

@@ -20,16 +20,16 @@
 				</a>	
 			</a>	
 				<div class="row">
-						<div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+						<div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 								<?php dynamic_sidebar('Services Menu'); ?>
 						</div>
-						<div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-								<?php dynamic_sidebar('Contact Menu'); ?>
-						</div>
-						<div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+						<!-- <div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+								<?php // dynamic_sidebar('Contact Menu'); ?>
+						</div> -->
+						<div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 								<?php dynamic_sidebar('Download Menu'); ?>
 						</div>
-						<div class="col-6 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+						<div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4">
 								<?php dynamic_sidebar('Social Icon'); ?>
 						</div>
 				</div>
@@ -38,21 +38,15 @@
 						<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 							<div class="footer-credits">
 							<p class="footer-copyright">&copy;
-									<?php
-								echo date_i18n(
-									/* translators: Copyright date format, see https://secure.php.net/date */
-									_x( 'Y', 'copyright date format', 'twentytwenty' )
-								);
+								<?php
+								// echo date_i18n(_x( 'Y', 'copyright date format', 'twentytwenty' ));
 								?>
-									<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-									<?php bloginfo( 'name' ); ?>
-									</a> </p>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+									<?php // bloginfo( 'name' ); ?>
+									2017 Dastjar AB
+								</a>
+							</p>
 							<!-- .footer-copyright --> 
-							
-							<!--p class="powered-by-wordpress"> <a href="<?php //echo esc_url( __( 'https://wordpress.org/', 'twentytwenty' ) ); ?>">
-									<?php //_e( 'Powered by WordPress', 'twentytwenty' ); ?>
-									</a> </p--> 
-							<!-- .powered-by-wordpress --> 
 							
 					</div>
 						</div>

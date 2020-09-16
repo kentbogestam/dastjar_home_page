@@ -112,8 +112,8 @@ jQuery(function ($) {
         selected_tab.siblings().removeClass('nav-tab-active');
         selected_tab.addClass('nav-tab-active');
         var content_to_show = $(this).attr('data-tab');
-        $('.mega-tab-content').hide();
-        $('.' + content_to_show).show();
+        $(this).parent().parent().find('.mega-tab-content').hide();
+        $(this).parent().parent().find('.' + content_to_show).show();
     });
 
     $(".theme_editor").on("submit", function(e) {

@@ -2,8 +2,8 @@
 Contributors: megamenu
 Tags: menu, megamenu, mega menu, navigation, widget, dropdown menu, drag and drop, mobile, responsive, retina, theme editor, widget, shortcode, sidebar, icons, dashicons
 Requires at least: 4.9
-Tested up to: 5.3
-Stable tag: 2.7.2
+Tested up to: 5.5
+Stable tag: 2.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ Max Mega Menu will automatically convert your existing menu or menus into a mega
 https://www.youtube.com/watch?v=44dJwP1AXT8
 
 Documentation & Demo: [https://www.megamenu.com](https://www.megamenu.com)
+
+[](http://coderisk.com/wp/plugin/megamenu/RIPS-1tlo19jJE_)
 
 ###Mobile
 
@@ -130,6 +132,45 @@ See https://www.megamenu.com for more screenshots
 5. Back end: Use the theme editor to change the appearance of your menus
 
 == Changelog ==
+
+= 2.8 =
+
+* New: Allow menu location settings to be adjusted from the Mega Menu > Menu Locations page
+* Fix: Trim "Panel Width" settings in theme editor to prevent attributes from being malformed
+* Fix: Hover text decoration not applied when Icon Position is set to "Top"
+* Fix: Divi reload bug, ensure sidebar is registered on front and back end
+* Fix: collapsable sub menus open and close themselves in mobile view
+
+= 2.7.7 =
+
+* Refactor: Improve method to determine the depth of a menu item (when loading menu item options in back end)
+
+= 2.7.6 =
+
+* Fix: Revert "Refactor: Improve method to determine the depth of a menu item", causing infinite loop on some installations
+
+= 2.7.5 =
+
+* Improvement: Add megamenu_javascript_handle filter
+* Improvement: Tidy up CSS for backwards compatibility with previous versions of Pro
+* Improvement: Pave the way for removing JavaScript localisation by moving hover intent options to wrap attributes
+* Improvement: Allow third level items to be distributed over 6 columns (previously 4) (requires clearing the Menu CSS Cache)
+* Improvement: Increase number of available columns for "Mega Menu - Standard Layout" from 9 to 12 (requires clearing the Menu CSS Cache)
+* Fix: Unquote font family CSS when Reset Widget Styling is enabled
+* Fix: Edge case PHP warning when using widget
+* Fix: Workaround for when wp_get_theme() fails to return name of active theme
+* Fix: Correctly sanitise theme import data and escape output. Thanks to polyplanet.de for reporting this!
+* Refactor: Decouple menu items lightbox options from nav-menus.php screen. When opening lightbox settings on nav-menus.php, use PHP to determine these values rather than JavaScript
+* Refactor: Improve method to determine the depth of a menu item
+
+= 2.7.4 =
+
+* Fix: Allow double quotes in custom font names
+* Fix: Border radius on Flyout Menus
+* Fix: PHP 7.4 warning in theme editor
+* Fix: Unable to select/paste text within HTML replacement editor using Safari
+* Fix: Intermittent issue with Image Widget settings not loading correctly in back end
+* Improvement: Add support for MEGAMENU_SCRIPTS_IN_FOOTER constant in wp-config.php
 
 = 2.7.3 =
 

@@ -22,8 +22,6 @@ class Mega_Menu_Widget_Manager {
      */
     public function __construct() {
 
-        add_action( 'init', array( $this, 'register_sidebar' ) );
-
         add_action( 'wp_ajax_mm_edit_widget', array( $this, 'ajax_show_widget_form' ) );
         add_action( 'wp_ajax_mm_edit_menu_item', array( $this, 'ajax_show_menu_item_form' ) );
         add_action( 'wp_ajax_mm_save_widget', array( $this, 'ajax_save_widget' ) );
@@ -66,25 +64,6 @@ class Mega_Menu_Widget_Manager {
         }
 
         return $instance;
-    }
-
-
-    /**
-     * Create our own widget area to store all mega menu widgets.
-     * All widgets from all menus are stored here, they are filtered later
-     * to ensure the correct widgets show under the correct menu item.
-     *
-     * @since 1.0
-     */
-    public function register_sidebar() {
-
-        register_sidebar(
-            array(
-                'id' => 'mega-menu',
-                'name' => __("Max Mega Menu Widgets", "megamenu"),
-                'description'   => __("This is where Max Mega Menu stores widgets that you have added to sub menus using the mega menu builder. You can edit existing widgets here, but new widgets must be added through the Mega Menu interface (under Appearance > Menus).", "megamenu")
-            )
-        );
     }
 
 
@@ -153,6 +132,8 @@ class Mega_Menu_Widget_Manager {
                         <option value='2' <?php selected( $menu_item_meta['submenu_columns'], 2, true ) ?> >2 <?php __("columns", "megamenu") ?></option>
                         <option value='3' <?php selected( $menu_item_meta['submenu_columns'], 3, true ) ?> >3 <?php __("columns", "megamenu") ?></option>
                         <option value='4' <?php selected( $menu_item_meta['submenu_columns'], 4, true ) ?> >4 <?php __("columns", "megamenu") ?></option>
+                        <option value='5' <?php selected( $menu_item_meta['submenu_columns'], 5, true ) ?> >5 <?php __("columns", "megamenu") ?></option>
+                        <option value='6' <?php selected( $menu_item_meta['submenu_columns'], 6, true ) ?> >6 <?php __("columns", "megamenu") ?></option>
                     </select>
                 </p>
                 <p>

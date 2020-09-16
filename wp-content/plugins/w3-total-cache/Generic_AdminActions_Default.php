@@ -123,6 +123,20 @@ class Generic_AdminActions_Default {
 		Util_Admin::redirect( array(), true );
 	}
 
+	public function w3tc_default_purgelog_clear() {
+		$module = Util_Request::get_label( 'module' );
+		$log_filename = Util_Debug::log_filename( $module . '-purge' );
+		if ( file_exists( $log_filename ) ) {
+			unlink( $log_filename );
+		}
+
+		Util_Admin::redirect( array(
+			'page' => 'w3tc_general',
+			'view' => 'purge_log',
+			'module' => $module
+		), true );
+	}
+
 	/**
 	 *
 	 */
@@ -795,12 +809,26 @@ class Generic_AdminActions_Default {
 		include W3TC_DIR . '/ConfigKeys.php';   // define $keys
 
 		foreach ( $request as $request_key => $request_value ) {
-			if  ( is_array( $request_value ) )
+			if  ( is_array( $request_value ) ) {
 				array_map( 'stripslashes_deep', $request_value );
-			else
+			} else {
 				$request_value = stripslashes( $request_value );
-			if ( strpos( $request_key, 'memcached__servers' ) || strpos( $request_key, 'redis__servers' ) )
-				$request_value = explode( ',', $request_value );
+
+				if ( strpos( $request_key, 'memcached__servers' ) || strpos( $request_key, 'redis__servers' ) ) {
+					$request_value = explode( ',', $request_value );
+				}
+			}
+
+			if ( substr( $request_key, 0, 11 ) == 'extension__' ) {
+				$extension_id = Util_Ui::config_key_from_http_name(
+					substr( $request_key, 11 ) );
+
+				if ( $request_value == '1' ) {
+					Extensions_Util::activate_extension( $extension_id, $config, true );
+				} else {
+					Extensions_Util::deactivate_extension( $extension_id, $config, true );
+				}
+			}
 
 			$key = Util_Ui::config_key_from_http_name( $request_key );
 			if ( is_array( $key ) ) {

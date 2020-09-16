@@ -42,25 +42,25 @@
 
 /** The name of the database for WordPress */
 
-define( 'DB_NAME', 'dastjarhome' );
+define( 'DB_NAME', 'dastjar_home' );
 
 
 
 /** MySQL database username */
 
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'dastjardb' );
 
 
 
 /** MySQL database password */
 
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'Alirezakent1' );
 
 
 
 /** MySQL hostname */
 
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'dastjardb.cdlnsxaqoaic.eu-west-1.rds.amazonaws.com' );
 
 
 
@@ -159,12 +159,13 @@ $table_prefix = 'wp_';
 
  */
 
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 
 
 /* That's all, stop editing! Happy publishing. */
-
+/* Memory setting */
+/*define('WP_MEMORY_LIMIT', '256M');*/
 
 
 /** Absolute path to the WordPress directory. */

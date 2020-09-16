@@ -1,19 +1,19 @@
 === Plugin Name ===
-Contributors: boldgrid, fredericktownes, maxicusc, gidomanders, bwmarkle
-Tags: seo, cache, caching, compression, maxcdn, nginx, varnish, redis, new relic, aws, amazon web services, s3, cloudfront, rackspace, cloudflare, azure, apache
+Contributors: boldgrid, fredericktownes, maxicusc, gidomanders, bwmarkle, harryjackson1221, joemoto
+Tags: seo, cache, optimize, pagespeed, performance, caching, compression, maxcdn, nginx, varnish, redis, new relic, aws, amazon web services, s3, cloudfront, rackspace, cloudflare, azure, apache
 Requires at least: 3.2
-Tested up to: 5.3
-Stable tag: 0.12.0
+Tested up to: 5.4
+Stable tag: 0.14.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Search Engine (SEO) &amp; Performance Optimization (WPO) via caching. Integrated caching: CDN, Minify, Page, Object, Fragment, Database support.
+Search Engine (SEO) &amp; Performance Optimization (WPO) via caching. Integrated caching: CDN, Page, Minify, Object, Fragment, Database support.
 
 == Description ==
 
-W3 Total Cache improves the SEO and user experience of your site by increasing website performance, reducing load times via features like content delivery network (CDN) integration and the latest best practices.
+W3 Total Cache (W3TC) improves the SEO and user experience of your site by increasing website performance and reducing load times by leveraging features like content delivery network (CDN) integration and the latest best practices.
 
-The **only** web host agnostic Web Performance Optimization (WPO) framework for WordPress trusted by millions of publishers, web developers, and web hosts worldwide for more than a decade.
+W3TC is the **only** web host agnostic Web Performance Optimization (WPO) framework for WordPress trusted by millions of publishers, web developers, and web hosts worldwide for more than a decade. It is the total performance solution for optimizing your WordPress Website.
 
 An inside look:
 
@@ -28,7 +28,7 @@ https://youtu.be/7AsNSSrZq4Y
 * Optimized progressive render: pages start rendering quickly and can be interacted with more quickly
 * Reduced page load time: increased visitor time on site; visitors view more pages
 * Improved web server performance; sustain high traffic periods
-* Up to 80% bandwidth savings via minify and HTTP compression of HTML, CSS, JavaScript and feeds
+* Up to 80% bandwidth savings when you minify HTML, minify CSS and minify JS files.
 
 *KEY FEATURES*
 
@@ -45,20 +45,24 @@ https://youtu.be/7AsNSSrZq4Y
 * Caching of objects in memory or on disk
 * Caching of fragments in memory or on disk
 * Caching methods include local Disk, Redis, Memcached, APC, APCu, eAccelerator, XCache, and WinCache
-* Minification of posts and pages and feeds
-* Minification of inline, embedded or 3rd party JavaScript (with automated updates)
-* Minification of inline, embedded or 3rd party CSS (with automated updates)
+* Minify CSS, Minify JavaScript and Minify HTML with granular control
+* Minification of posts and pages and RSS feeds
+* Minification of inline, embedded or 3rd party JavaScript with automated updates to assets
+* Minification of inline, embedded or 3rd party CSS with automated updates to assets
+* Defer non critical CSS and Javascript for rendering pages faster than ever before
+* Defer offscreen images using Lazy Load to improve the user experience
 * Browser caching using cache-control, future expire headers and entity tags (ETag) with "cache-busting"
 * JavaScript grouping by template (home page, post page etc) with embed location control
 * Non-blocking JavaScript embedding
 * Import post attachments directly into the Media Library (and CDN)
+* Leverage our multiple CDN integrations to optimize images
 * WP-CLI support for cache purging, query string updating and more
-* Various security features
-* Caching statistics for performance insights
-* Extension framework for customization or extensibility e.g. New Relic, Cloudflare, WPML and more
+* Various security features to help ensure website safety
+* Caching statistics for performance insights of any enabled feature
+* Extension framework for customization or extensibility for Cloudflare, WPML and much more
 * Reverse proxy integration via Nginx or Varnish
 
-Improve the user experience for your readers without having to change WordPress, your theme, your plugins or how you produce your content.
+Speed up your site tremendously, and improve the user experience for your readers without having to change WordPress, your theme, your plugins or how you produce your content.
 
 == Frequently Asked Questions ==
 
@@ -244,7 +248,7 @@ Install the plugin to read the full FAQ on the plugins FAQ tab.
 1. *Recommended:* If you already have a content delivery network (CDN) provider, proceed to the "Content Delivery Network" tab and populate the fields and set your preferences. If you do not use the Media Library, you will need to import your images etc into the default locations. Use the Media Library Import Tool on the "Content Delivery Network" tab to perform this task. If you do not have a CDN provider, you can still improve your site's performance using the "Self-hosted" method. On your own server, create a subdomain and matching DNS Zone record; e.g. static.domain.com and configure FTP options on the "Content Delivery Network" tab accordingly. Be sure to FTP upload the appropriate files, using the available upload buttons.
 1. *Optional:* On the "Database Cache" tab, the recommended settings are preset. If using a shared hosting account use the "disk" method with caution, the response time of the disk may not be fast enough, so this option is disabled by default. Try object caching instead for shared hosting.
 1. *Optional:* On the "Object Cache" tab, all of the recommended settings are preset. If using a shared hosting account use the "disk" method with caution, the response time of the disk may not be fast enough, so this option is disabled by default. Test this option with and without database cache to ensure that it provides a performance increase.
-1. *Optional:* On the "User Agent Groups" tab, specify any user agents, like mobile phones if a mobile theme is used. 
+1. *Optional:* On the "User Agent Groups" tab, specify any user agents, like mobile phones if a mobile theme is used.
 
 == What users have to say: ==
 
@@ -270,6 +274,49 @@ It's quite difficult to recall all of the innovators that have shared their thou
 Please reach out to all of these people and support their projects if you're so inclined.
 
 == Changelog ==
+
+= 0.14.3 =
+* Fix: Take "Accepted Query Strings" into account when "Cache query strings" enabled
+* Fix: Fix typo in variable for lazy loading
+* Update: Add lazy load Google Maps reference to the general settings page
+* Update: Support background-image: together with background: for lazy loading
+
+= 0.14.2 =
+* Fixed WP-CLI rediect issue in multisite
+* Fix: Avoid PREG_JIT_STACKLIMIT_ERROR in minify
+* Fix: Prevent empty needle PHP warning
+* Update: Allow to specify URIs with a query string in Additional Pages
+
+= 0.14.1 =
+* Fixed CSS minify URL rewrite logic that affected some lazy loading and CSS URL addresses using protocols
+
+= 0.14.0 =
+* Added lazy loading for Google Maps
+* Added a filter w3tc_minify_css_content for minified contents
+* Fixed a minify regex issue in non-Unicode websites
+* Fixed a PHP notice in WPMU: accessing array offset on null
+* Fixed a minify issue where embedded CSS URL fragments were converted incorrectly
+* i18n improvement
+* Changed default to disabled for wp-admin requests in the object cache
+
+= 0.13.3 =
+* Fixed HTML minification of img elements containing embedded SVG strings
+* Removed an identifying value for GDPR
+
+= 0.13.2 =
+* Fix: Dont store content of HEAD requests
+* Updated informational URL on page cache static page comments
+
+= 0.13.1 =
+* Fixed php warnings in PgCache_ContentGrabber.php
+
+= 0.13.0 =
+* Added new Pro feature, Debug - Purge Stack Trace
+* Added "Feature Policy" security header
+* Removed deprecated get_magic_quotes_gpc()
+* Improved AMP Extension by ignoring value of amp querystring marker in request if passed without value in config
+* Improved lazyload by not processing elements with skip-lazy class or data-skip-lazy attribute
+* Fixed caching of query-string normalization redirects, no longer cached when cache key is normalized by accept querystring arguments, caused redirect loop
 
 = 0.12.0 =
 * Added querystring based URL structures for AMP pages
@@ -366,7 +413,7 @@ Please reach out to all of these people and support their projects if you're so 
 
 = 0.9.7.2 =
 * Fixed fatal error during media file upload with CDN module active
-* Fixed removal of empty values, JSON encoded string in attribute, trailing quote at end of tag, and the handling of anchors in HTML minify 
+* Fixed removal of empty values, JSON encoded string in attribute, trailing quote at end of tag, and the handling of anchors in HTML minify
 * Fixed undefined index warning
 * Fixed fatal error when purging CDN using full site delivery
 

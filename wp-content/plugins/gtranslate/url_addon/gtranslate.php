@@ -219,7 +219,7 @@ $response_headers = explode(PHP_EOL, $header);
 //print_r($response_headers);
 $headers_sent = '';
 foreach($response_headers as $header) {
-    if(!empty($header) and !preg_match('/Content\-Length:|Transfer\-Encoding:|Content\-Encoding:|Link:/i', $header)) {
+    if(!empty(trim($header)) and !preg_match('/Content\-Length:|Transfer\-Encoding:|Content\-Encoding:|Link:/i', $header)) {
 
         if(preg_match('/^(Location|Refresh):/i', $header)) {
             $header = str_ireplace($host, $_SERVER['HTTP_HOST'] . '/' . $glang, $header);

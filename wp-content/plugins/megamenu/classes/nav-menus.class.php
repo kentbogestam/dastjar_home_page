@@ -40,13 +40,13 @@ class Mega_Menu_Nav_Menus {
 
     }
 
+
     /**
      * Constructor
      *
      * @since 1.0
      */
     public function __construct() {
-
         add_action( 'admin_init', array( $this, 'register_nav_meta_box' ), 9 );
         add_action( 'megamenu_nav_menus_scripts', array( $this, 'enqueue_menu_page_scripts' ), 10 );
         add_action( 'wp_ajax_mm_save_settings', array($this, 'save') );
@@ -148,16 +148,15 @@ class Mega_Menu_Nav_Menus {
 
     }
 
-
     /**
-     * Enqueue required CSS and JS for Mega Menu
+     * Enqueue required CSS and JS for the mega menu lightbox and meta options
      *
      * @since 1.0
      */
-    public function enqueue_menu_page_scripts($hook) {
-
-        if( 'nav-menus.php' != $hook )
+    public function enqueue_menu_page_scripts( $hook ) {
+        if( ! in_array( $hook, array( 'nav-menus.php' ) ) ) {
             return;
+        }
 
         // Compatibility fix for SlideDeck Pro
         wp_deregister_script('codemirror');
@@ -237,11 +236,8 @@ class Mega_Menu_Nav_Menus {
      * @since 1.0
      */
     public function metabox_contents() {
-
         $menu_id = $this->get_selected_menu_id();
-
         $this->print_enable_megamenu_options( $menu_id );
-
     }
 
 
@@ -251,27 +247,21 @@ class Mega_Menu_Nav_Menus {
      * @since 1.0
      */
     public function save() {
-
         check_ajax_referer( 'megamenu_edit', 'nonce' );
 
         if ( isset( $_POST['menu'] ) && $_POST['menu'] > 0 && is_nav_menu( $_POST['menu'] ) && isset( $_POST['megamenu_meta'] ) ) {
-
             $raw_submitted_settings = $_POST['megamenu_meta'];
-
             $parsed_submitted_settings = json_decode( stripslashes( $raw_submitted_settings ), true );
-
             $submitted_settings = array();
 
             foreach ( $parsed_submitted_settings as $index => $value ) {
                 $name = $value['name'];
 
-                // find values between square brackets
-                preg_match_all( "/\[(.*?)\]/", $name, $matches );
+                preg_match_all( "/\[(.*?)\]/", $name, $matches ); // find values between square brackets
 
                 if ( isset( $matches[1][0] ) && isset( $matches[1][1] ) ) {
                     $location = $matches[1][0];
                     $setting = $matches[1][1];
-
                     $submitted_settings[$location][$setting] = $value['value'];
                 }
             }
@@ -279,27 +269,19 @@ class Mega_Menu_Nav_Menus {
             $submitted_settings = apply_filters("megamenu_submitted_settings_meta", $submitted_settings);
 
             if ( ! get_option( 'megamenu_settings' ) ) {
-
                 update_option( 'megamenu_settings', $submitted_settings );
-
             } else {
-
                 $existing_settings = get_option( 'megamenu_settings' );
-
                 $new_settings = array_merge( $existing_settings, $submitted_settings );
 
                 update_option( 'megamenu_settings', $new_settings );
-
             }
 
             do_action( "megamenu_after_save_settings" );
-
             do_action( "megamenu_delete_cache" );
-
         }
 
         wp_die();
-
     }
 
 
@@ -310,67 +292,48 @@ class Mega_Menu_Nav_Menus {
      * @since 1.0
      */
     public function print_enable_megamenu_options( $menu_id ) {
-
         $tagged_menu_locations = $this->get_tagged_theme_locations_for_menu_id( $menu_id );
         $theme_locations = get_registered_nav_menus();
-
         $saved_settings = get_option( 'megamenu_settings' );
 
         if ( ! count( $theme_locations ) ) {
-
             $link = '<a href="https://www.megamenu.com/documentation/widget/?utm_source=free&amp;utm_medium=link&amp;utm_campaign=pro" target="_blank">' . __("here", "megamenu") . '</a>';
 
             echo "<p>" . __("This theme does not register any menu locations.", "megamenu") . "</p>";
             echo "<p>" . __("You will need to create a new menu location and use the Max Mega Menu widget or shortcode to display the menu on your site.", "megamenu") . "</p>";
             echo "<p>" . str_replace( "{link}", $link, __("Click {link} for instructions.", "megamenu") ) . "</p>";
-
         } else if ( ! count ( $tagged_menu_locations ) ) {
-
             echo "<p>" . __("Please assign this menu to a theme location to enable the Mega Menu settings.", "megamenu") . "</p>";
-
             echo "<p>" . __("To assign this menu to a theme location, scroll to the bottom of this page and tag the menu to a 'Display location'.", "megamenu") . "</p>";
-
         } else { ?>
 
             <?php if ( count( $tagged_menu_locations ) == 1 ) : ?>
-
                 <?php
 
                 $locations = array_keys( $tagged_menu_locations );
                 $location = $locations[0];
+                $name = esc_html( $tagged_menu_locations[ $location ] );
 
-                if (isset( $tagged_menu_locations[ $location ] ) ) {
+                if ( isset( $tagged_menu_locations[ $location ] ) ) {
+                    echo "<h4><span class='dashicons dashicons-location'></span>{$name}</h4>";
                     $this->settings_table( $location, $saved_settings );
                 }
 
                 ?>
-
             <?php else: ?>
-
                 <div id='megamenu_accordion'>
-
                     <?php foreach ( $theme_locations as $location => $name ) : ?>
-
                         <?php if ( isset( $tagged_menu_locations[ $location ] ) ): ?>
-
-                            <h3 class='theme_settings'><?php echo esc_html( $name ); ?></h3>
-
+                            <h4><span class='dashicons dashicons-location'></span><?php echo esc_html( $name ); ?></h4>
                             <div class='accordion_content' style='display: none;'>
                                 <?php $this->settings_table( $location, $saved_settings ); ?>
                             </div>
-
                         <?php endif; ?>
-
                     <?php endforeach;?>
                 </div>
-
             <?php endif; ?>
 
-            <?php
-
-            submit_button( __( 'Save' ), 'max-mega-menu-save button-primary alignright');
-
-            ?>
+            <?php submit_button( __( 'Save' ), 'max-mega-menu-save button-primary alignright'); ?>
 
             <span class='spinner'></span>
 
@@ -529,7 +492,7 @@ class Mega_Menu_Nav_Menus {
                             $selected_theme = isset( $settings[$location]['theme'] ) ? $settings[$location]['theme'] : 'default';
 
                             foreach ( $themes as $key => $theme ) {
-                                echo "<option value='{$key}' " . selected( $selected_theme, $key ) . ">{$theme['title']}</option>";
+                                echo "<option value='{$key}' " . selected( $selected_theme, $key ) . ">" . esc_html( $theme['title'] ) . "</option>";
                             }
                         ?>
                     </select>

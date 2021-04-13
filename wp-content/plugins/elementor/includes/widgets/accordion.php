@@ -5,7 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 /**
  * Elementor accordion widget.
  *
@@ -77,10 +78,10 @@ class Widget_Accordion extends Widget_Base {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 1.0.0
+	 * @since 3.1.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_title',
 			[
@@ -290,9 +291,8 @@ class Widget_Accordion extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion-icon, {{WRAPPER}} .elementor-accordion-title' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_1,
+				'global' => [
+					'default' => Global_Colors::COLOR_PRIMARY,
 				],
 			]
 		);
@@ -305,9 +305,8 @@ class Widget_Accordion extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-active .elementor-accordion-icon, {{WRAPPER}} .elementor-active .elementor-accordion-title' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
+				'global' => [
+					'default' => Global_Colors::COLOR_ACCENT,
 				],
 			]
 		);
@@ -317,7 +316,9 @@ class Widget_Accordion extends Widget_Base {
 			[
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .elementor-accordion .elementor-accordion-title',
-				'scheme' => Schemes\Typography::TYPOGRAPHY_1,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
 			]
 		);
 
@@ -437,9 +438,8 @@ class Widget_Accordion extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-accordion .elementor-tab-content' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
+				'global' => [
+					'default' => Global_Colors::COLOR_TEXT,
 				],
 			]
 		);
@@ -449,7 +449,9 @@ class Widget_Accordion extends Widget_Base {
 			[
 				'name' => 'content_typography',
 				'selector' => '{{WRAPPER}} .elementor-accordion .elementor-tab-content',
-				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -508,6 +510,7 @@ class Widget_Accordion extends Widget_Base {
 					'data-tab' => $tab_count,
 					'role' => 'tab',
 					'aria-controls' => 'elementor-tab-content-' . $id_int . $tab_count,
+					'aria-expanded' => 'false',
 				] );
 
 				$this->add_render_attribute( $tab_content_setting_key, [
@@ -521,7 +524,7 @@ class Widget_Accordion extends Widget_Base {
 				$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
 				?>
 				<div class="elementor-accordion-item">
-					<<?php echo $settings['title_html_tag']; ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
+					<<?php echo Utils::validate_html_tag( $settings['title_html_tag'] ); ?> <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>>
 						<?php if ( $has_icon ) : ?>
 							<span class="elementor-accordion-icon elementor-accordion-icon-<?php echo esc_attr( $settings['icon_align'] ); ?>" aria-hidden="true">
 							<?php
@@ -535,7 +538,7 @@ class Widget_Accordion extends Widget_Base {
 							</span>
 						<?php endif; ?>
 						<a class="elementor-accordion-title" href=""><?php echo $item['tab_title']; ?></a>
-					</<?php echo $settings['title_html_tag']; ?>>
+					</<?php echo Utils::validate_html_tag( $settings['title_html_tag'] ); ?>>
 					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
 				</div>
 			<?php endforeach; ?>
@@ -572,7 +575,8 @@ class Widget_Accordion extends Widget_Base {
 						'tabindex': tabindex + tabCount,
 						'data-tab': tabCount,
 						'role': 'tab',
-						'aria-controls': 'elementor-tab-content-' + tabindex + tabCount
+						'aria-controls': 'elementor-tab-content-' + tabindex + tabCount,
+						'aria-expanded': 'false',
 					} );
 
 					view.addRenderAttribute( tabContentKey, {
@@ -584,9 +588,11 @@ class Widget_Accordion extends Widget_Base {
 					} );
 
 					view.addInlineEditingAttributes( tabContentKey, 'advanced' );
+
+					var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.title_html_tag );
 					#>
 					<div class="elementor-accordion-item">
-						<{{{ settings.title_html_tag }}} {{{ view.getRenderAttributeString( tabTitleKey ) }}}>
+						<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString( tabTitleKey ) }}}>
 							<# if ( settings.icon || settings.selected_icon ) { #>
 							<span class="elementor-accordion-icon elementor-accordion-icon-{{ settings.icon_align }}" aria-hidden="true">
 								<# if ( iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
@@ -599,7 +605,7 @@ class Widget_Accordion extends Widget_Base {
 							</span>
 							<# } #>
 							<a class="elementor-accordion-title" href="">{{{ item.tab_title }}}</a>
-						</{{{ settings.title_html_tag }}}>
+						</{{{ titleHTMLTag }}}>
 						<div {{{ view.getRenderAttributeString( tabContentKey ) }}}>{{{ item.tab_content }}}</div>
 					</div>
 					<#

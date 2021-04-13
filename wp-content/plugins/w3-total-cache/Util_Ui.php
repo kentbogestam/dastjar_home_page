@@ -155,6 +155,13 @@ class Util_Ui {
 	/**
 	 * Returns postbox header
 	 *
+	 * WordPress 5.5 introduced .postbox-header, which broke the styles of our postboxes. This was
+	 * resolved by adding additional css to /pub/css/options.css and pub/css/widget.css tagged with
+	 * a "WP 5.5" comment.
+	 *
+	 * @todo Add .postbox-header to our postboxes and cleanup css.
+	 * @link https://github.com/W3EDGE/w3-total-cache/issues/237
+	 *
 	 * @param string  $title
 	 * @param string  $class
 	 * @param string  $id
@@ -925,6 +932,7 @@ class Util_Ui {
 					__( 'Dedicated / Virtual Server:', 'w3-total-cache' ),
 					__( 'Multiple Servers:', 'w3-total-cache' )
 				),
+				'control_after' => isset( $a['control_after'] ) ? $a['control_after'] : null,
 			) );
 	}
 

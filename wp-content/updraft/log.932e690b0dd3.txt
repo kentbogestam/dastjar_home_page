@@ -1,0 +1,265 @@
+0000.000 (0) Opened log file at time: Mon, 13 Jul 2020 15:34:37 +0000 on https://www.dastjar.com
+0000.009 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.23 WP: 5.4 PHP: 7.2.24 (fpm-fcgi, Linux ip-172-31-47-60.eu-west-1.compute.internal 4.14.152-127.182.amzn2.x86_64 #1 SMP Thu Nov 14 17:32:43 UTC 2019 x86_64) MySQL: 5.7.12 WPLANG: en_US Server: Apache/2.4.41 () OpenSSL/1.0.2k-fips safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 28.9M | 6.3M) multisite: N openssl: OpenSSL 1.0.2k  26 Jan 2017 mcrypt: N LANG:  ZipArchive::addFile: N
+0000.013 (0) Free space on disk containing Updraft's temporary directory: 4499.2 MB
+0000.018 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.022 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.035 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1594567907, seconds_ago=86571)
+0000.061 (0) Set semaphore last lock (fd) time to 2020-07-13 15:34:38
+0000.065 (0) Semaphore lock (fd) complete
+0000.077 (0) Backup run: resumption=0, nonce=932e690b0dd3, file_nonce=932e690b0dd3 begun at=1594654477 (1s ago), job type=backup
+0000.083 (0) Scheduling a resumption (1) after 300 seconds (1594654778) in case this run gets aborted
+0000.101 (0) Checking if we have a zip executable available
+0000.104 (0) Testing: /usr/bin/zip
+0000.116 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.119 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.122 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.126 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.129 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.137 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.142 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.156 (0) Working binary zip found: /usr/bin/zip
+0000.166 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.170 (0) Creation of backups of directories: beginning
+0000.179 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.299 (0) Total entities for the zip file: 711 directories, 4639 files (0 skipped as non-modified), 61.1 MB
+0000.311 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.326 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.337 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.347 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.356 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.359 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.2 MB, 4639 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.053 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: size is now: 2.50 MB
+0001.068 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 600 files added (on-disk size: 2571.1 KB)
+0001.078 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 700 files added (on-disk size: 2571.1 KB)
+0001.088 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 800 files added (on-disk size: 2571.1 KB)
+0001.097 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 900 files added (on-disk size: 2571.1 KB)
+0001.108 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1000 files added (on-disk size: 2571.1 KB)
+0001.112 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (14.5 MB, 4639 files batched, 501 (1002) added so far); re-opening (prior size: 2571.1 KB)
+0002.015 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: size is now: 7.20 MB
+0002.027 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1100 files added (on-disk size: 7409.7 KB)
+0002.035 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1200 files added (on-disk size: 7409.7 KB)
+0002.042 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1300 files added (on-disk size: 7409.7 KB)
+0002.049 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1400 files added (on-disk size: 7409.7 KB)
+0002.056 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1500 files added (on-disk size: 7409.7 KB)
+0002.062 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 4639 files batched, 501 (1503) added so far); re-opening (prior size: 7409.7 KB)
+0002.387 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1600 files added (on-disk size: 8571.5 KB)
+0002.397 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1700 files added (on-disk size: 8571.5 KB)
+0002.404 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1800 files added (on-disk size: 8571.5 KB)
+0002.414 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 1900 files added (on-disk size: 8571.5 KB)
+0002.425 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2000 files added (on-disk size: 8571.5 KB)
+0002.428 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.6 MB, 4639 files batched, 501 (2004) added so far); re-opening (prior size: 8571.5 KB)
+0002.948 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2100 files added (on-disk size: 9693 KB)
+0002.958 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2200 files added (on-disk size: 9693 KB)
+0002.968 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2300 files added (on-disk size: 9693 KB)
+0002.976 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2400 files added (on-disk size: 9693 KB)
+0002.984 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2500 files added (on-disk size: 9693 KB)
+0002.989 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.6 MB, 4639 files batched, 501 (2505) added so far); re-opening (prior size: 9693 KB)
+0003.322 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2600 files added (on-disk size: 11062.8 KB)
+0003.332 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2700 files added (on-disk size: 11062.8 KB)
+0003.342 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2800 files added (on-disk size: 11062.8 KB)
+0003.351 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 2900 files added (on-disk size: 11062.8 KB)
+0003.361 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3000 files added (on-disk size: 11062.8 KB)
+0003.374 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.3 MB, 4639 files batched, 501 (3006) added so far); re-opening (prior size: 11062.8 KB)
+0003.662 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3100 files added (on-disk size: 11692 KB)
+0003.670 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3200 files added (on-disk size: 11692 KB)
+0003.679 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3300 files added (on-disk size: 11692 KB)
+0003.687 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3400 files added (on-disk size: 11692 KB)
+0003.693 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3500 files added (on-disk size: 11692 KB)
+0003.696 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.7 MB, 4639 files batched, 501 (3507) added so far); re-opening (prior size: 11692 KB)
+0004.217 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3600 files added (on-disk size: 13704.1 KB)
+0004.225 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3700 files added (on-disk size: 13704.1 KB)
+0004.235 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3800 files added (on-disk size: 13704.1 KB)
+0004.246 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 3900 files added (on-disk size: 13704.1 KB)
+0004.256 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4000 files added (on-disk size: 13704.1 KB)
+0004.260 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (15.9 MB, 4639 files batched, 501 (4008) added so far); re-opening (prior size: 13704.1 KB)
+0005.379 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: size is now: 17.60 MB
+0005.392 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4100 files added (on-disk size: 18025.2 KB)
+0005.401 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4200 files added (on-disk size: 18025.2 KB)
+0005.408 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4300 files added (on-disk size: 18025.2 KB)
+0005.418 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4400 files added (on-disk size: 18025.2 KB)
+0005.425 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4500 files added (on-disk size: 18025.2 KB)
+0005.431 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.6 MB, 4639 files batched, 501 (4509) added so far); re-opening (prior size: 18025.2 KB)
+0005.863 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip.tmp: 4600 files added (on-disk size: 18949.8 KB)
+0006.234 (0) Created plugins zip (0) - 19162.9 KB in 6.1 s (3167.3 KB/s) (sha1: 6b6cd72878f80d03fb1773c369bad4e49cb5cf62, sha256: 46fa83a3716ed8d984f8636aece01dc80ab4f17e0e7c86e773abae49a0eaaf17)
+0006.243 (0) Beginning creation of dump of themes (split every: 400 MB)
+0006.253 (0) Total entities for the zip file: 12 directories, 62 files (0 skipped as non-modified), 1.5 MB
+0006.339 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-themes.zip.tmp: size is now: 0.80 MB
+0006.366 (0) Created themes zip (0) - 836.4 KB in 0.1 s (7057.2 KB/s) (sha1: f2db446ac692c44d1b04f00513b2585704242bf3, sha256: 180140d2bff8c4230b9e04d9d6810d04cf9a566fa9d13bd3709ab3581de9feb5)
+0006.373 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0006.377 (0) Looking for candidates to backup in: /var/www/html/wordpress/wp-content/uploads
+0006.382 (0) finding files: 2019: adding to list (1)
+0006.387 (0) finding files: 2020: adding to list (2)
+0006.390 (0) finding files: elementor: adding to list (3)
+0006.396 (0) finding files: maxmegamenu: adding to list (4)
+0006.400 (0) finding files: file-manager: adding to list (5)
+0006.403 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0006.411 (0) Total entities for the zip file: 19 directories, 112 files (0 skipped as non-modified), 6.5 MB
+0006.419 (0) Zip: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.578 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip.tmp: size is now: 6.40 MB
+0006.657 (0) Created uploads zip (0) - 6595.8 KB in 0.3 s (26233 KB/s) (sha1: 1a244acb5c0a26042e38a79e62636d3ae9291db1, sha256: 41797fd040a8fdd459d77478d9a5688fc305ebd887f91361b519dba48baa4589)
+0006.670 (0) Beginning backup of other directories found in the content directory (index: 0)
+0006.673 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0006.677 (0) Looking for candidates to backup in: /var/www/html/wordpress/wp-content
+0006.683 (0) finding files: index.php: adding to list (1)
+0006.686 (0) finding files: plugins: skipping: this is the plugins directory
+0006.688 (0) finding files: themes: skipping: this is the themes directory
+0006.692 (0) finding files: uploads: skipping: this is the uploads directory
+0006.695 (0) finding files: backupwordpress-d4b305e42b-backups: skipping: excluded by options (glob)
+0006.698 (0) finding files: backupwordpress-d4b305e42b-backups: skipping: excluded by options (glob)
+0006.698 (0) finding files: upgrade: skipping: excluded by options
+0006.702 (0) finding files: updraft: skipping: this is the updraft directory
+0006.713 (0) Total entities for the zip file: 0 directories, 1 files (0 skipped as non-modified), 0 MB
+0006.720 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-others.zip.tmp: size is now: 0.00 MB
+0006.738 (0) Created others zip (0) - 0.2 KB in 0 s (6 KB/s) (sha1: 1d8bc2f3747c91f84c39a85c5001122ecd6d02a7, sha256: 3a74bc58db5a186287f11923f3e7c40867c02128fcbcc2b09dc9ca6ee9ee396f)
+0006.756 (0) Saving backup status to database (elements: 8)
+0006.771 (0) Beginning creation of database dump (WordPress DB)
+0006.781 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0006.870 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1223 bytes total)
+0006.879 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0006.895 (0) Table wp_options: Total expected rows (approximate): 251
+0006.924 (0) Table wp_options: Total rows added: 247 in 0.03 seconds
+0006.929 (0) Table wp_options: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_options.table.gz - 83.1 KB)
+0006.943 (0) Table wp_users: Total expected rows (approximate): 0
+0006.950 (0) Table wp_users: Total rows added: 1 in 0.00 seconds
+0006.954 (0) Table wp_users: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_users.table.gz - 0.5 KB)
+0006.964 (0) Table wp_usermeta: Total expected rows (approximate): 29
+0006.969 (0) Table wp_usermeta: Total rows added: 29 in 0.00 seconds
+0006.972 (0) Table wp_usermeta: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_usermeta.table.gz - 1.5 KB)
+0006.982 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0006.986 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0006.989 (0) Table wp_commentmeta: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0006.999 (0) Table wp_comments: Total expected rows (approximate): 0
+0007.003 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0007.009 (0) Table wp_comments: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_comments.table.gz - 0.5 KB)
+0007.021 (0) Table wp_links: Total expected rows (approximate): 0
+0007.026 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0007.032 (0) Table wp_links: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_links.table.gz - 0.4 KB)
+0007.046 (0) Table wp_postmeta: Total expected rows (approximate): 3389
+0007.144 (0) Table wp_postmeta: Total rows added: 3437 in 0.09 seconds
+0007.147 (0) Table wp_postmeta: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_postmeta.table.gz - 236.1 KB)
+0007.162 (0) Table wp_posts: Total expected rows (approximate): 545
+0007.202 (0) Table wp_posts: Total rows added: 545 in 0.04 seconds
+0007.207 (0) Table wp_posts: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_posts.table.gz - 110.1 KB)
+0007.219 (0) Table wp_term_relationships: Total expected rows (approximate): 24
+0007.227 (0) Table wp_term_relationships: Total rows added: 24 in 0.00 seconds
+0007.232 (0) Table wp_term_relationships: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0007.241 (0) Table wp_term_taxonomy: Total expected rows (approximate): 11
+0007.247 (0) Table wp_term_taxonomy: Total rows added: 11 in 0.00 seconds
+0007.250 (0) Table wp_term_taxonomy: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_term_taxonomy.table.gz - 0.6 KB)
+0007.261 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0007.267 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0007.270 (0) Table wp_termmeta: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_termmeta.table.gz - 0.4 KB)
+0007.280 (0) Table wp_terms: Total expected rows (approximate): 11
+0007.286 (0) Table wp_terms: Total rows added: 11 in 0.00 seconds
+0007.291 (0) Table wp_terms: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_terms.table.gz - 0.5 KB)
+0007.301 (0) Table wp_fm_log: Total expected rows (approximate): 0
+0007.305 (0) Table wp_fm_log: Total rows added: 0 in 0.00 seconds
+0007.308 (0) Table wp_fm_log: finishing file (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_fm_log.table.gz - 0.3 KB)
+0007.315 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_options.table.gz (1/13): adding to final database dump
+0007.336 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_users.table.gz (2/13): adding to final database dump
+0007.340 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_usermeta.table.gz (3/13): adding to final database dump
+0007.344 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_commentmeta.table.gz (4/13): adding to final database dump
+0007.347 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_comments.table.gz (5/13): adding to final database dump
+0007.352 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_links.table.gz (6/13): adding to final database dump
+0007.355 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_postmeta.table.gz (7/13): adding to final database dump
+0007.417 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_posts.table.gz (8/13): adding to final database dump
+0007.444 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_term_relationships.table.gz (9/13): adding to final database dump
+0007.447 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_term_taxonomy.table.gz (10/13): adding to final database dump
+0007.450 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_termmeta.table.gz (11/13): adding to final database dump
+0007.454 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_terms.table.gz (12/13): adding to final database dump
+0007.457 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db-table-wp_fm_log.table.gz (13/13): adding to final database dump
+0007.460 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz: finished writing out complete database file (416 KB)
+0007.481 (0) Total database tables backed up: 13 (backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz, size: 443212, sha1: e9fcfdd314170a7128889ed17a55ef9709837d9d, sha256: cfbc8ba72d031f9ad5ecf4768d04a958f5f71790be062ac9d696c167c04b4493)
+0007.502 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0007.505 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0007.507 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0007.510 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-others.zip: others: This file has not yet been successfully uploaded: will queue
+0007.513 (0) backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz: db: This file has not yet been successfully uploaded: will queue
+0007.516 (0) Saving backup history. Total backup size: 26.4 MB
+0007.525 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0007.538 (0) Cloud backup selection (1/1): s3 with instance (1/1) (last)
+0007.541 (0) Beginning dispatch of backup to remote (s3) (instance identifier s-9d10f4a963e7110c69ad31ad13e7b37f)
+0007.897 (0) Amazon S3: Set region: eu-west-1
+0007.904 (0) Amazon S3: upload (eu-west-1): backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip (chunks: 4) -> s3://dastjar-backup/home/backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip
+0007.947 (0) Amazon S3: chunked upload: got multipart ID: jETICnKI4MCbl90HtfCMwbSVlW2gIb5qrV0UGqrBzFhTziridMmTaVcKA2y00I51cz8FWztwSM1cDtHecQEv_A--
+0008.163 (0) S3 chunked upload: 25 % uploaded (1, "0e2535e671dd4080c7fa91e579ba10c9")
+0008.340 (0) S3 chunked upload: 50 % uploaded (2, "ea56f9321151c50bf8834e9d917524bb")
+0008.526 (0) S3 chunked upload: 75 % uploaded (3, "c505a347aa56bafdf823e4f583305d6b")
+0008.673 (0) S3 chunked upload: 100 % uploaded (4, "08cdf8bf8eb269590a4d8d6b85939220")
+0008.683 (0) Amazon S3: upload: all chunks uploaded; will now instruct S3 to re-assemble
+0008.753 (0) Amazon S3: upload (plugins0): re-assembly succeeded
+0008.756 (0) Recording as successfully uploaded: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip
+0008.771 (0) Deleting local file: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-plugins.zip: OK
+0008.775 (0) Amazon S3: upload (eu-west-1): backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-themes.zip (chunks: 1) -> s3://dastjar-backup/home/backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-themes.zip
+0008.884 (0) Amazon S3: regular upload: success
+0008.888 (0) Recording as successfully uploaded: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-themes.zip
+0008.894 (0) Deleting local file: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-themes.zip: OK
+0008.897 (0) Amazon S3: upload (eu-west-1): backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip (chunks: 2) -> s3://dastjar-backup/home/backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip
+0008.916 (0) Amazon S3: chunked upload: got multipart ID: uBvxlhoe_jPExMYp6h2sUGMEMKpx.ARS1c6xsqvtN0NdcjBH6Q.sGIj4H0u30ehDfF3INCsN0sMo7thzNiZFCg--
+0009.090 (0) S3 chunked upload: 50 % uploaded (1, "dcaced39fb73ab848bbdf91e186b88a3")
+0009.189 (0) S3 chunked upload: 100 % uploaded (2, "313851969b22f8a3456991cc703a9ac7")
+0009.201 (0) Amazon S3: upload: all chunks uploaded; will now instruct S3 to re-assemble
+0009.261 (0) Amazon S3: upload (uploads0): re-assembly succeeded
+0009.266 (0) Recording as successfully uploaded: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip
+0009.277 (0) Deleting local file: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-uploads.zip: OK
+0009.280 (0) Amazon S3: upload (eu-west-1): backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-others.zip (chunks: 1) -> s3://dastjar-backup/home/backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-others.zip
+0009.324 (0) Amazon S3: regular upload: success
+0009.329 (0) Recording as successfully uploaded: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-others.zip
+0009.336 (0) Deleting local file: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-others.zip: OK
+0009.338 (0) Amazon S3: upload (eu-west-1): backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz (chunks: 1) -> s3://dastjar-backup/home/backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz
+0009.405 (0) Amazon S3: regular upload: success
+0009.409 (0) Recording as successfully uploaded: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz
+0009.417 (0) Deleting local file: backup_2020-07-13-1534_Restaurant_Services_932e690b0dd3-db.gz: OK
+0009.428 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=4, retain_db=4
+0009.431 (0) Number of backup sets in history: 5; groups (db): 1
+0009.436 (0) Examining (for databases) backup set with group_id=0, nonce=932e690b0dd3, datestamp=1594654477 (Jul 13 2020 15:34:37)
+0009.440 (0) This backup set is the backup set just made, so will not be deleted.
+0009.440 (0) Examining (for databases) backup set with group_id=0, nonce=99f705529220, datestamp=1594567907 (Jul 12 2020 15:31:47)
+0009.440 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.442 (0) Examining (for databases) backup set with group_id=0, nonce=bdc4712e40a1, datestamp=1594481481 (Jul 11 2020 15:31:21)
+0009.442 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.443 (0) Examining (for databases) backup set with group_id=0, nonce=892ebbba23f7, datestamp=1594396820 (Jul 10 2020 16:00:20)
+0009.443 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.443 (0) Examining (for databases) backup set with group_id=0, nonce=92934e4b6c00, datestamp=1594308712 (Jul 09 2020 15:31:52)
+0009.443 (0) 1594308712: db: this set includes a database (backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-db.gz); db count is now 4
+0009.443 (0) 1594308712: db: over retain limit (4); will delete this database
+0009.443 (0) Delete file: backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-db.gz, service=s3
+0009.445 (0) Amazon S3: Delete remote: bucket=dastjar-backup, URI=home/backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-db.gz
+0009.470 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0009.474 (0) Number of backup sets in history: 5; groups (files): 1
+0009.479 (0) Examining (for files) backup set with nonce=932e690b0dd3, datestamp=1594654477 (Jul 13 2020 15:34:37)
+0009.479 (0) This backup set is the backup set just made, so will not be deleted.
+0009.485 (0) This backup set is the backup set just made, so will not be deleted.
+0009.485 (0) This backup set is the backup set just made, so will not be deleted.
+0009.485 (0) This backup set is the backup set just made, so will not be deleted.
+0009.485 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.488 (0) Examining (for files) backup set with nonce=99f705529220, datestamp=1594567907 (Jul 12 2020 15:31:47)
+0009.488 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.488 (0) Examining (for files) backup set with nonce=bdc4712e40a1, datestamp=1594481481 (Jul 11 2020 15:31:21)
+0009.488 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.489 (0) Examining (for files) backup set with nonce=892ebbba23f7, datestamp=1594396820 (Jul 10 2020 16:00:20)
+0009.489 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0009.489 (0) Examining (for files) backup set with nonce=92934e4b6c00, datestamp=1594308712 (Jul 09 2020 15:31:52)
+0009.489 (0) plugins: over retain limit (4); will delete this file entity
+0009.489 (0) themes: over retain limit (4); will delete this file entity
+0009.489 (0) uploads: over retain limit (4); will delete this file entity
+0009.489 (0) others: over retain limit (4); will delete this file entity
+0009.489 (0) Delete file: backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-plugins.zip, service=s3
+0009.492 (0) Delete file: backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-themes.zip, service=s3
+0009.494 (0) Delete file: backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-uploads.zip, service=s3
+0009.497 (0) Delete file: backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-others.zip, service=s3
+0009.500 (0) Amazon S3: Delete remote: bucket=dastjar-backup, URI=home/backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-plugins.zip
+0009.519 (0) Amazon S3: Delete remote: bucket=dastjar-backup, URI=home/backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-themes.zip
+0009.537 (0) Amazon S3: Delete remote: bucket=dastjar-backup, URI=home/backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-uploads.zip
+0009.557 (0) Amazon S3: Delete remote: bucket=dastjar-backup, URI=home/backup_2020-07-09-1531_Restaurant_Services_92934e4b6c00-others.zip
+0009.578 (0) This backup set is now empty; will remove from history
+0009.582 (0) Deleting log file (log.92934e4b6c00.txt)
+0009.585 (0) Retain: saving new backup history (sets now: 4) and finishing retain operation
+0009.598 (0) Resume backup (932e690b0dd3, 0): finish run
+0009.611 (0) Decremented the semaphore (fd) by 1
+0009.619 (0) Semaphore (fd) unlocked
+0009.622 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0009.631 (0) Fetching RSS news feed
+0009.841 (0) Fetched RSS news feed; result is a: SimplePie
+0009.980 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: admin...
+0010.013 (0) The backup apparently succeeded and is now complete

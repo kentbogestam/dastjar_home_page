@@ -57,7 +57,7 @@
                     return;
                 }
 
-                if ( confirm( navMenuL10n.saveAlert ) ) {
+                if ( confirm( megamenu.unsaved_changes ) ) {
                     originalClose();
                 }
             };
@@ -1131,10 +1131,14 @@
         }
 
         var start_saving = function() {
+            var original_value = $(".mm_content:visible p.submit input.button-primary").attr('value');
+            $(".mm_content:visible p.submit input.button-primary").addClass('is-busy').attr('value', megamenu.saving + "…").attr('data-orig-value', original_value);
             $(".mm_saving").show();
         }
 
         var end_saving = function() {
+            var original_value = $(".mm_content:visible p.submit input.button-primary").attr('data-orig-value');
+            $(".mm_content:visible p.submit input.button-primary").removeClass("is-busy").attr('value', original_value);
             $(".mm_saving").fadeOut("fast");
         }
 
@@ -1149,13 +1153,6 @@
  */
 jQuery(function($) {
     "use strict";
-
-    $("#megamenu_accordion").accordion({
-        heightStyle: "content",
-        collapsible: true,
-        active: false,
-        animate: 200
-    });
 
     var apply_megamenu_enabled_class = function() {
         if ($("input.megamenu_enabled:checked") && $("input.megamenu_enabled:checked").length) {
@@ -1230,7 +1227,9 @@ jQuery(function($) {
         $(".mega_menu_meta_box .spinner").css("visibility", "visible");
 
         var settings = JSON.stringify($("[name^='megamenu_meta']").serializeArray());
-
+        var button = $(this);
+        var enabled = button.parent().parent().find(".megamenu_enabled");
+        var title = button.parent().parent().prev();
         // retrieve the widget settings form
         $.post(ajaxurl, {
             action: "mm_save_settings",
@@ -1239,7 +1238,52 @@ jQuery(function($) {
             nonce: megamenu.nonce
         }, function(response) {
             $(".mega_menu_meta_box .spinner").css("visibility", "hidden");
+
+            if ( enabled.is(":checked") ) {
+                title.addClass("mega-location-enabled");
+            } else {
+                title.removeClass("mega-location-enabled");
+            }
         });
     });
 
+    $(".mega-accordion-title").on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var title = $(this);
+        var content = title.next('.mega-accordion-content');
+
+        $(".mega-accordion-content:visible").slideUp('fast');
+
+        if ( content.is(':hidden') ) {
+            content.slideDown('fast');
+            title.addClass('mega-accordion-open');
+        } else {
+            content.slideUp('fast', function() {
+                title.removeClass('mega-accordion-open');
+            });
+        }
+    });
+
+    $(".mega-ellipsis").on('click', function(e) {
+        e.stopPropagation();
+
+        var ellipsis = $(this);
+
+        $(".mega-ellipsis").not(ellipsis).removeClass('mega-ellipsis-open');
+
+        if ( ellipsis.hasClass('mega-ellipsis-open') ) {
+            ellipsis.removeClass('mega-ellipsis-open');
+        } else {
+            ellipsis.addClass('mega-ellipsis-open');
+        }
+    });
+
+    $(document).on("click", function(e) { // hide menu when clicked away from
+        if ( ! $(e.target).closest(".mega-ellipsis").length ) {
+            $(".mega-ellipsis").removeClass('mega-ellipsis-open');
+        }
+    });
+    
 });

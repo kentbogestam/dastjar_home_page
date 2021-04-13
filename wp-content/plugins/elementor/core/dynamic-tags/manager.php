@@ -40,26 +40,12 @@ class Manager {
 	}
 
 	/**
-	 * Localize settings.
-	 *
-	 * Add new localized settings for the dynamic module.
-	 *
-	 * Fired by `elementor/editor/localize_settings` filter.
-	 *
-	 * @access public
-	 *
-	 * @param array $settings Localized settings.
-	 *
-	 * @return array Localized settings.
+	 * @deprecated 3.1.0
 	 */
-	public function localize_settings( $settings ) {
-		$settings = array_replace_recursive( $settings, [
-			'i18n' => [
-				'dynamic' => __( 'Dynamic', 'elementor' ),
-			],
-		] );
+	public function localize_settings() {
+		Plugin::$instance->modules_manager->get_modules( 'dev-tools' )->deprecation->deprecated_function( __METHOD__, '3.1.0' );
 
-		return $settings;
+		return [];
 	}
 
 	/**
@@ -120,7 +106,7 @@ class Manager {
 			return '';
 		}
 
-		return call_user_func_array( $parse_callback, $tag_data );
+		return call_user_func_array( $parse_callback, array_values( $tag_data ) );
 	}
 
 	/**
@@ -433,15 +419,7 @@ class Manager {
 	 * @param Post $css_file
 	 */
 	public function after_enqueue_post_css( $css_file ) {
-		$post_id = $css_file->get_post_id();
-
-		if ( $css_file instanceof Post_Preview ) {
-			$post_id_for_data = $css_file->get_preview_id();
-		} else {
-			$post_id_for_data = $post_id;
-		}
-
-		$css_file = Dynamic_CSS::create( $post_id, $post_id_for_data );
+		$css_file = Dynamic_CSS::create( $css_file->get_post_id(), $css_file );
 
 		$css_file->enqueue();
 	}
@@ -461,6 +439,5 @@ class Manager {
 	private function add_actions() {
 		add_action( 'elementor/ajax/register_actions', [ $this, 'register_ajax_actions' ] );
 		add_action( 'elementor/css-file/post/enqueue', [ $this, 'after_enqueue_post_css' ] );
-		add_filter( 'elementor/editor/localize_settings', [ $this, 'localize_settings' ] );
 	}
 }

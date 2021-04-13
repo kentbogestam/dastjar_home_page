@@ -1,4 +1,7 @@
 <?php
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
 
 /**
 
@@ -54,7 +57,7 @@ define( 'DB_USER', 'dastjardb' );
 
 /** MySQL database password */
 
-define( 'DB_PASSWORD', 'Alirezakent1' );
+define( 'DB_PASSWORD', 'H29:A&Uu,mbXty4s{GkS' );
 
 
 

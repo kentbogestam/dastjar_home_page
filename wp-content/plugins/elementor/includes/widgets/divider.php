@@ -5,7 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 /**
  * Elementor divider widget.
@@ -344,10 +345,10 @@ class Widget_Divider extends Widget_Base {
 	 *
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	 *
-	 * @since 1.0.0
+	 * @since 3.1.0
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$styles = $this->get_separator_styles();
 		$this->start_controls_section(
 			'section_divider',
@@ -472,6 +473,7 @@ class Widget_Divider extends Widget_Base {
 			[
 				'label' => __( 'Add Element', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
+				'default' => 'line',
 				'options' => [
 					'line' => [
 						'title' => __( 'None', 'elementor' ),
@@ -488,6 +490,7 @@ class Widget_Divider extends Widget_Base {
 				],
 				'separator' => 'before',
 				'prefix_class' => 'elementor-widget-divider--view-',
+				'toggle' => false,
 				'render_type' => 'template',
 			]
 		);
@@ -513,6 +516,29 @@ class Widget_Divider extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+			]
+		);
+
+		$this->add_control(
+			'html_tag',
+			[
+				'label' => __( 'HTML Tag', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'condition' => [
+					'look' => 'line_text',
+				],
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
+				],
+				'default' => 'span',
 			]
 		);
 
@@ -549,14 +575,13 @@ class Widget_Divider extends Widget_Base {
 			[
 				'label' => __( 'Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global' => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'default' => '#000',
 				'render_type' => 'template',
 				'selectors' => [
-					'{{WRAPPER}}' => '--divider-border-color: {{VALUE}}',
+					'{{WRAPPER}}' => '--divider-color: {{VALUE}}',
 				],
 			]
 		);
@@ -685,9 +710,8 @@ class Widget_Divider extends Widget_Base {
 			[
 				'label' => __( 'Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global' => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-divider__text' => 'color: {{VALUE}}',
@@ -699,7 +723,9 @@ class Widget_Divider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'typography',
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .elementor-divider__text',
 			]
 		);
@@ -821,9 +847,8 @@ class Widget_Divider extends Widget_Base {
 					'{{WRAPPER}}.elementor-view-framed .elementor-icon, {{WRAPPER}}.elementor-view-default .elementor-icon' => 'color: {{VALUE}}; border-color: {{VALUE}};',
 					'{{WRAPPER}}.elementor-view-framed .elementor-icon, {{WRAPPER}}.elementor-view-default .elementor-icon svg' => 'fill: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_2,
+				'global' => [
+					'default' => Global_Colors::COLOR_SECONDARY,
 				],
 			]
 		);
@@ -971,12 +996,12 @@ class Widget_Divider extends Widget_Base {
 		];
 
 		if ( 'line' !== $selected_pattern['group'] ) {
-			$attr['fill'] = $settings['color'];
+			$attr['fill'] = 'black';
 			$attr['stroke'] = 'none';
 		} else {
-			$attr['stroke'] = $settings['color'];
-			$attr['stroke-width'] = $settings['weight']['size'];
 			$attr['fill'] = 'none';
+			$attr['stroke'] = 'black';
+			$attr['stroke-width'] = $settings['weight']['size'];
 			$attr['stroke-linecap'] = 'square';
 			$attr['stroke-miterlimit'] = '10';
 		}
@@ -1031,7 +1056,7 @@ class Widget_Divider extends Widget_Base {
 				$this->add_inline_editing_attributes( 'text' );
 				$this->add_render_attribute( 'text', [ 'class' => [ 'elementor-divider__text', 'elementor-divider__element' ] ] );
 				?>
-				<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo $settings['text']; ?></span>
+				<<?php echo Utils::validate_html_tag( $settings['html_tag'] ) . ' ' . $this->get_render_attribute_string( 'text' ); ?>><?php echo $settings['text']; ?></<?php echo Utils::validate_html_tag( $settings['html_tag'] ); ?>>
 			<?php endif; ?>
 			</span>
 		</div>

@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /wp-admin/
+
+User-agent: *
+Disallow: /
+Sitemap: https://www.dastjar.com/sitemap.txt
